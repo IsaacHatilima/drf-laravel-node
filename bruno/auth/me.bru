@@ -1,0 +1,20 @@
+meta {
+  name: me
+  type: http
+  seq: 3
+}
+
+get {
+  url: 127.0.0.1:3000/me
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM2NGYyYjU0LTcwMWUtNDE2Ni1hMzcxLTY1OTg3ODEwYjFjOSIsImVtYWlsIjoidGVzdDMzQG1haWwuY29tIiwiaWF0IjoxNzYzMDU2MjgxLCJleHAiOjE3NjMwNTcxODF9.YyuP36PK8UG7HEHMmsGErBwkU3tvNSDiL6epP-dJugY
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
