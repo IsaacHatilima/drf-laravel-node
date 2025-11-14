@@ -3,17 +3,27 @@ import {container} from "../../lib/container";
 
 export default async function RefreshTokenController(req: Request, res: Response) {
     try {
-        const {refresh_token} = req.body;
+        const refreshToken = req.cookies?.refresh_token;
 
-        if (!refresh_token) {
-            return res.status(422).json({errors: ["Refresh token is required"]});
+        if (!refreshToken) {
+            return res.status(401).json({errors: ["No refresh token"]});
         }
 
-        const tokens = container.refreshTokenService.refresh(refresh_token);
+        const tokens = container.refreshTokenService.refresh(refreshToken);
+
+        const isProduction = process.env.APP_ENV === "production";
+
+        res.cookie("refresh_token", tokens.refresh_token, {
+            httpOnly: true,
+            secure: isProduction,
+            sameSite: isProduction ? "strict" : "lax",
+            path: "/auth/refresh",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
 
         return res.json({
             message: "Token refreshed",
-            ...tokens,
+            access_token: tokens.access_token,
         });
 
     } catch (e: any) {
