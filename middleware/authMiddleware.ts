@@ -21,7 +21,7 @@ export function AuthMiddleware(
     try {
         req.user = jwt.verify(
             token,
-            process.env.JWT_ACCESS_SECRET as string
+            process.env.APP_KEY as string
         ) as { id: string; email: string };
         next();
 
