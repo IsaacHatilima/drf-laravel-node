@@ -11,11 +11,11 @@ A repos to showcase the same API written in DRF, Laravel and Node.
 | Registration       | Done    | Pending | Pending |
 | Login              | Done    | Pending | Pending |
 | Token Refresh      | Done    | Pending | Pending |
-| Logout             | Pending | Pending | Pending |
+| Logout             | Done    | Pending | Pending |
 | Email Verification | Done    | Pending | Pending |
 | Rate Limiting      | Done    | Pending | Pending |
 | Password Reset     | Pending | Pending | Pending |
 | Change Password    | Pending | Pending | Pending |
-| Update Profile     | Done    | Pending | Pending |
-| Delete Profile     | Done    | Pending | Pending |
+| Update Profile     | Pending | Pending | Pending |
+| Delete Profile     | Pending | Pending | Pending |
 

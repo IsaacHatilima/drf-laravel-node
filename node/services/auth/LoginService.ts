@@ -38,6 +38,14 @@ export class LoginService {
             id: user.id,
         });
 
+        await this.db.refreshToken.create({
+            data: {
+                userId: user.id,
+                token: refresh_token,
+                expiresAt: new Date(Date.now() + 7 * 24 * 3600 * 1000)
+            }
+        });
+
         return {
             user,
             access_token,

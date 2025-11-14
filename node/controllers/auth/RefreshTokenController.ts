@@ -9,7 +9,7 @@ export default async function RefreshTokenController(req: Request, res: Response
             return res.status(401).json({errors: ["No refresh token"]});
         }
 
-        const tokens = container.refreshTokenService.refresh(refreshToken);
+        const tokens = await container.refreshTokenService.refresh(refreshToken);
 
         const isProduction = process.env.APP_ENV === "production";
 
