@@ -3,6 +3,7 @@ import {RegisterService} from "../services/auth/RegisterService";
 import {MeService} from "../services/auth/MeService";
 import {LoginService} from "../services/auth/LoginService";
 import {EmailVerificationService} from "../services/auth/EmailVerificationService";
+import {RefreshTokenService} from "../services/auth/RefreshTokenService";
 
 class Container {
     prisma = new PrismaClient();
@@ -11,6 +12,7 @@ class Container {
     registerService = new RegisterService(this.prisma);
     emailVerificationService = new EmailVerificationService(this.prisma);
     meService = new MeService(this.prisma);
+    refreshTokenService = new RefreshTokenService(this.prisma);
 }
 
 export const container = new Container();
